@@ -1,15 +1,28 @@
-// lib/main.dart
 import 'package:flutter/material.dart';
-import 'di/di.dart'; // Наш DI
-import 'my_app.dart'; // Наш класс приложения
+import 'package:firebase_core/firebase_core.dart'; // [cite: 10]
+import 'di/di.dart'; 
+import 'my_app.dart'; 
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // [cite: 136]
-  await setupLocator(); // [cite: 137]
-  
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); 
+
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyB-tuNnEUdLCJSfh_Fzi0tRAufAv_FYvAE",
+      authDomain: "flutter-tikhonov.firebaseapp.com",
+      projectId: "flutter-tikhonov",
+      storageBucket: "flutter-tikhonov.firebasestorage.app",
+      messagingSenderId: "816166042369",
+      appId: "1:816166042369:web:dfd3d3105b95b6bafcf900",
+      measurementId: "G-209VVZ94KZ",
+    ),
+  ); 
+
+  await setupLocator(); 
+
   FlutterError.onError = (details) {
-    return talker.handle(details.exception, details.stack); // [cite: 139]
+    return talker.handle(details.exception, details.stack); 
   };
 
-  runApp(AppName()); // [cite: 141]
+  runApp(const AppName()); 
 }

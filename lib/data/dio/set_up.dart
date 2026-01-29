@@ -12,8 +12,8 @@ void setUpDio() {
     // 'api_token': '', // Ключ не нужен
   });
 
-  dio.options.connectTimeout = const Duration(seconds: 5);
-  dio.options.receiveTimeout = const Duration(seconds: 5);
+  dio.options.connectTimeout = const Duration(seconds: 20);
+  dio.options.receiveTimeout = const Duration(seconds: 20);
   dio.interceptors.addAll([
     TalkerDioLogger(
       talker: talker,

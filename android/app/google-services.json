@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "816166042369",
+    "project_id": "flutter-tikhonov",
+    "storage_bucket": "flutter-tikhonov.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816166042369:android:7a8fc3ff8aa65ed4fcf900",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpALiHYg3hHb3dxAPtRbFyy43Rb3UgfsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

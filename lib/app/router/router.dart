@@ -29,5 +29,26 @@ final router = GoRouter(
         child: ContentScreen(contentId: state.pathParameters['id']!),
       ),
     ),
+    GoRoute(
+      path: '/login',
+      pageBuilder: (_, state) => MaterialPage(
+        key: state.pageKey,
+        child: const LoginScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/signup',
+      pageBuilder: (_, state) => MaterialPage(
+        key: state.pageKey,
+        child: const AuthScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/favorites',
+      pageBuilder: (_, state) => MaterialPage(
+        key: state.pageKey,
+        child: const FavoritesScreen(),
+      ),
+    ),
   ],
 );

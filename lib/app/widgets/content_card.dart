@@ -5,8 +5,18 @@ import '../../domain/repositories/content/model/content.dart'; // <-- ИМПОР
 
 class ContentCard extends StatelessWidget {
   // Принимаем 'content'
-  const ContentCard({super.key, required this.content});
+  const ContentCard({
+    super.key,
+    required this.content,
+    this.isFavorite = false,
+    this.showFavorite = false,
+    this.onFavoritePressed,
+  });
+
   final Content content;
+  final bool isFavorite;
+  final bool showFavorite;
+  final VoidCallback? onFavoritePressed;
 
   @override
   Widget build(BuildContext context) {
@@ -39,18 +49,33 @@ class ContentCard extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    content.title, // <-- ИЗМЕНЕНО
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.titleLarge,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          content.title, // <-- ИЗМЕНЕНО
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                      ),
+                      if (showFavorite)
+                        IconButton(
+                          onPressed: onFavoritePressed,
+                          icon: Icon(
+                            Icons.star,
+                            color: isFavorite ? Colors.red : Colors.grey,
+                          ),
+                        ),
+                    ],
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Expanded(
                     child: Text(
                       content.description, // <-- ИЗМЕНЕНО
